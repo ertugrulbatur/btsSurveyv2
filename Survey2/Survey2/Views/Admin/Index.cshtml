@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container col-md-12">
+    <div class="bg-primary text-white col-lg-pull-1 m-1">
+        <h2>User List</h2>
+
+    </div>
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <table class="table table-bordered table-striped m-1 p-1">
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+            
+        </tr>
+
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" class="text-center">
+                    No Users
+                </td>
+            </tr>
+
+        }
+        else
+        {
+            foreach (var user in Model)
+            {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                @* <td>@user.PasswordHash</td>*@
+                <td>
+                    <form asp-route-id="@user.Id" asp-action="Delete" method="post">
+                        <button type="submit" value="Delete" class="btn btn-danger">Delete</button>
+                        <a asp-action="Update" asp-route-id="@user.Id" class="btn btn-primary">Update</a>
+                    </form>
+                </td>
+            </tr>
+
+            }
+
+
+        }
+    </table>
+
+    <a asp-action="Create" class="btn btn-primary">Create User</a>
+
+</div>

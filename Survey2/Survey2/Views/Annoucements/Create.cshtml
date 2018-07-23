@@ -1,0 +1,37 @@
+﻿@model Survey2.Models.Annoucement
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Annoucement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="container">
+
+                <form action="/action_page.php">
+                    <div class="form-group">
+                        <label for="comment">Duyuru:</label>
+                        <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a asp-action="Index" class="btn btn-dark">Duyurular'a Dön</a>
+                    </div>
+                </form>
+        </form>
+    </div>
+
+</div>
+
+
+
+
