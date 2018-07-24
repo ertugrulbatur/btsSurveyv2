@@ -9,7 +9,7 @@ using Survey2.Models;
 
 namespace Survey2.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
         private UserManager<AppUser> userManager;
@@ -60,6 +60,35 @@ namespace Survey2.Controllers
         public IActionResult AccessDenied()
         {            
             return View();
+        }
+
+        public IActionResult ResetPassword(string token)
+        {
+            return View();
+        }
+
+        public IActionResult SendPasswordResetLink(string username)
+        {
+            AppUser user = userManager.
+                 FindByNameAsync(username).Result;
+
+            if (user == null || !(userManager.IsEmailConfirmedAsync(user).Result))
+            {
+                ViewBag.Message = "Error while resetting your password!";
+                return View("Error");
+            }
+
+            var token = userManager.
+                  GeneratePasswordResetTokenAsync(user).Result;
+
+            var resetLink = Url.Action("ResetPassword", "Account", new { token }, protocol: HttpContext.Request.Scheme);
+
+            // code to email the above link
+            // see the earlier article
+
+            ViewBag.Message = "Password reset link has been sent to your email address!";
+            return View("Login");
+
         }
     }
 }

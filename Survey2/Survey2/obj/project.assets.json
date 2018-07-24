@@ -12224,11 +12224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ertugrul Batur\\source\\repos\\Survey2\\Survey2\\Survey2.csproj",
+      "projectUniqueName": "C:\\Users\\Ertugrul Batur\\Desktop\\BITES\\Projects\\Survey2\\Survey2\\Survey2.csproj",
       "projectName": "Survey2",
-      "projectPath": "C:\\Users\\Ertugrul Batur\\source\\repos\\Survey2\\Survey2\\Survey2.csproj",
+      "projectPath": "C:\\Users\\Ertugrul Batur\\Desktop\\BITES\\Projects\\Survey2\\Survey2\\Survey2.csproj",
       "packagesPath": "C:\\Users\\Ertugrul Batur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ertugrul Batur\\source\\repos\\Survey2\\Survey2\\obj\\",
+      "outputPath": "C:\\Users\\Ertugrul Batur\\Desktop\\BITES\\Projects\\Survey2\\Survey2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

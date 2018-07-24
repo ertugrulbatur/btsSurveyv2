@@ -9,10 +9,10 @@
 
     </div>
 
-<div class="text-danger" asp-validation-summary="All"></div>
+    <div class="text-danger" asp-validation-summary="All"></div>
 
     <form asp-action="Login" method="post">
-        <input type ="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
 
         <div class="form-group">
             <label asp-for="Name"></label>
@@ -27,8 +27,10 @@
         <button type="submit" class="btn btn-primary">Login</button>
 
 
-    </form>
 
+    </form>
+    @*<button type="submit" value="ResetPassword" class="btn btn-primary">Reset Password</button>*@
+    <a asp-action="ResetPassword" class="btn btn-danger">Reset Password</a>
 
 
 
