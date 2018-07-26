@@ -17,5 +17,7 @@ namespace Survey2.Models
         public string UID { get; set; }
         public AppUser AppUser { get; set; }
         public string Text { get; set; }
+        public DateTime dateTime { get; set; }
+        public double TimeStamp { get; set; }
     }
 }

@@ -7,8 +7,8 @@ namespace Survey2.Models.ViewModels
 {
     public class SurveyViewModel
     {
-        public Question Question { get; set; }
-        public Choice Choice { get; set; }
+        public List<Question> Question { get; set; } = new List<Question>();
+        public List<Choice> Choice { get; set; } = new List<Choice>();
         public Survey Survey { get; set; }
     }
 }

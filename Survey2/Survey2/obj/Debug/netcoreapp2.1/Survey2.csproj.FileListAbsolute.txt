@@ -63,7 +63,6 @@ C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\bin\Debug\netcore
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\bin\Debug\netcoreapp2.1\Survey2.pdb
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\bin\Debug\netcoreapp2.1\Survey2.Views.dll
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\bin\Debug\netcoreapp2.1\Survey2.Views.pdb
-C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csprojAssemblyReference.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csproj.CoreCompileInputs.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.RazorAssemblyInfo.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.RazorAssemblyInfo.cs
@@ -115,3 +114,11 @@ C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcore
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.pdb
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csproj.CopyComplete
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Account\ResetPassword.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csprojAssemblyReference.cache
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Surveys\QuestionChoice.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Surveys\GetSurveyQuestions.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Choices\Create.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Choices\Delete.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Choices\Details.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Choices\Edit.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Choices\Index.g.cshtml.cs

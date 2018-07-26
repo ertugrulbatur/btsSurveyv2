@@ -16,5 +16,7 @@ namespace Survey2.Models
         [ForeignKey("Question")]
         public Guid QId { get; set; }
         public Question Question { get; set; }
+        public DateTime dateTime { get; set; }
+        public double TimeStamp { get; set; }
     }
 }

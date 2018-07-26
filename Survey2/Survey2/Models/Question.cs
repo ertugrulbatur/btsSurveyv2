@@ -23,5 +23,7 @@ namespace Survey2.Models
         [ForeignKey("AppUser")]
         public string UID { get; set; }
         public AppUser AppUser { get; set; }
+        public DateTime dateTime { get; set; }
+        public double TimeStamp { get; set; }
     }
 }

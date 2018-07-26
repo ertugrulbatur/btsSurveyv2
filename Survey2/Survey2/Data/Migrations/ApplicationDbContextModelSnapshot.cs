@@ -215,7 +215,11 @@ namespace Survey2.Data.Migrations
 
                     b.Property<Guid>("SurveyId");
 
+                    b.Property<double>("TimeStamp");
+
                     b.Property<string>("UID");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 
@@ -233,6 +237,10 @@ namespace Survey2.Data.Migrations
 
                     b.Property<string>("Text")
                         .HasColumnType("varchar(70)");
+
+                    b.Property<double>("TimeStamp");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 
@@ -268,7 +276,11 @@ namespace Survey2.Data.Migrations
                     b.Property<string>("Text")
                         .HasColumnType("varchar(100)");
 
+                    b.Property<double>("TimeStamp");
+
                     b.Property<string>("UID");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 
@@ -286,7 +298,11 @@ namespace Survey2.Data.Migrations
 
                     b.Property<string>("Text");
 
+                    b.Property<double>("TimeStamp");
+
                     b.Property<string>("UID");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Survey2.Data;
 using Survey2.Models;
+using Survey2.Models.ViewModels;
 
 namespace Survey2.Controllers
 {
@@ -24,6 +25,19 @@ namespace Survey2.Controllers
         {
             var applicationDbContext = _context.Survey.Include(s => s.AppUser);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> CreateSurvey([Bind("UID,Text")] Survey survey)
+        {
+            if (ModelState.IsValid)
+            {
+                survey.Id = Guid.NewGuid();
+                _context.Add(survey);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName", survey.UID);
+            return View(survey);
         }
 
         // GET: Surveys/Details/5
@@ -48,7 +62,7 @@ namespace Survey2.Controllers
         // GET: Surveys/Create
         public IActionResult Create()
         {
-            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "Id");
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName");
             return View();
         }
 
@@ -61,12 +75,14 @@ namespace Survey2.Controllers
         {
             if (ModelState.IsValid)
             {
+                survey.dateTime = DateTime.Now;
+                survey.TimeStamp = double.Parse(survey.dateTime.ToString("yyyyMMddhhmmss"));
                 survey.Id = Guid.NewGuid();
                 _context.Add(survey);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "Id", survey.UID);
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName", survey.UID);
             return View(survey);
         }
 
@@ -156,6 +172,22 @@ namespace Survey2.Controllers
         private bool SurveyExists(Guid id)
         {
             return _context.Survey.Any(e => e.Id == id);
+        }
+
+        public IActionResult GetSurveyQuestions(Guid? id)
+        {
+             var sModel = _context.Survey.Join(_context.Question,
+                    sur => sur.Id,
+                    quest => quest.SID,
+                    (sur, quest) => new SurveyViewModel()
+                    {
+                        Question = _context.Question.Where(x => x.SID== quest.SID).ToList(),
+                        Survey = _context.Survey.Where(x => x.Id == quest.SID).FirstOrDefault(),
+                        Choice = _context.Choice.Where(x=>x.QId == quest.Id).ToList()
+                    }
+                ).Where(x=> x.Survey.Id == id).Single();                
+
+            return View(sModel);
         }
     }
 }
