@@ -49,8 +49,8 @@ namespace Survey2.Controllers
         // GET: Questions/Create
         public IActionResult Create()
         {
-            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "Id");
-            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Id");
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName");
+            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Text");
             return View();
         }
 
@@ -63,13 +63,15 @@ namespace Survey2.Controllers
         {
             if (ModelState.IsValid)
             {
+                question.dateTime = DateTime.Now;
+                question.TimeStamp = double.Parse(question.dateTime.ToString("yyyyMMddhhmmss"));
                 question.Id = Guid.NewGuid();
                 _context.Add(question);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "Id", question.UID);
-            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Id", question.SID);
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName", question.UID);
+            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Text", question.SID);
             return View(question);
         }
 
@@ -86,8 +88,8 @@ namespace Survey2.Controllers
             {
                 return NotFound();
             }
-            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "Id", question.UID);
-            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Id", question.SID);
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName", question.UID);
+            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Text", question.SID);
             return View(question);
         }
 
@@ -123,8 +125,8 @@ namespace Survey2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "Id", question.UID);
-            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Id", question.SID);
+            ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName", question.UID);
+            ViewData["SID"] = new SelectList(_context.Survey, "Id", "Text", question.SID);
             return View(question);
         }
 

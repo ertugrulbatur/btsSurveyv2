@@ -190,8 +190,7 @@ namespace Survey2.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Text")
-                        .HasColumnType("varchar(200)");
+                    b.Property<string>("Text");
 
                     b.Property<string>("UID");
 
@@ -215,7 +214,11 @@ namespace Survey2.Data.Migrations
 
                     b.Property<Guid>("SurveyId");
 
+                    b.Property<double>("TimeStamp");
+
                     b.Property<string>("UID");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 
@@ -231,8 +234,11 @@ namespace Survey2.Data.Migrations
 
                     b.Property<Guid>("QId");
 
-                    b.Property<string>("Text")
-                        .HasColumnType("varchar(70)");
+                    b.Property<string>("Text");
+
+                    b.Property<double>("TimeStamp");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 
@@ -246,8 +252,7 @@ namespace Survey2.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Text")
-                        .HasColumnType("varchar(200)");
+                    b.Property<string>("Text");
 
                     b.Property<string>("UID");
 
@@ -265,10 +270,13 @@ namespace Survey2.Data.Migrations
 
                     b.Property<Guid>("SID");
 
-                    b.Property<string>("Text")
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Text");
+
+                    b.Property<double>("TimeStamp");
 
                     b.Property<string>("UID");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 
@@ -286,7 +294,11 @@ namespace Survey2.Data.Migrations
 
                     b.Property<string>("Text");
 
+                    b.Property<double>("TimeStamp");
+
                     b.Property<string>("UID");
+
+                    b.Property<DateTime>("dateTime");
 
                     b.HasKey("Id");
 

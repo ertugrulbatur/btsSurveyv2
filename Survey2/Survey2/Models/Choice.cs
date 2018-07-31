@@ -8,7 +8,7 @@ namespace Survey2.Models
 {
     public class Choice : BaseEntity
     {
-        [Column(TypeName = "varchar(70)")]
+        
         public string Text { get; set; }
         /// <summary>
         /// Choice's Question Id
@@ -16,5 +16,7 @@ namespace Survey2.Models
         [ForeignKey("Question")]
         public Guid QId { get; set; }
         public Question Question { get; set; }
+        public DateTime dateTime { get; set; }
+        public double TimeStamp { get; set; }
     }
 }

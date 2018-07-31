@@ -8,7 +8,7 @@ namespace Survey2.Models
 {
     public class Question : BaseEntity
     {
-        [Column(TypeName = "varchar(100)")]
+        
         public string Text { get; set; }
         public ICollection<Choice> Choices { get; set; }
         /// <summary>
@@ -23,5 +23,7 @@ namespace Survey2.Models
         [ForeignKey("AppUser")]
         public string UID { get; set; }
         public AppUser AppUser { get; set; }
+        public DateTime dateTime { get; set; }
+        public double TimeStamp { get; set; }
     }
 }
