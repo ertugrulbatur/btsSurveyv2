@@ -8,7 +8,7 @@ namespace Survey2.Models
 {
     public class Complaint : BaseEntity
     {
-        [Column(TypeName = "varchar(200)")]
+        
         public string Text { get; set; }
         /// <summary>
         /// Complaint's User Id

@@ -8,7 +8,7 @@ namespace Survey2.Models
 {
     public class Annoucement : BaseEntity
     {
-        [Column(TypeName = "varchar(200)")]
+        
         public string Text { get; set; }
         /// <summary>
         /// Annoucement's User Id

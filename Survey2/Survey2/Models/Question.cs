@@ -8,7 +8,7 @@ namespace Survey2.Models
 {
     public class Question : BaseEntity
     {
-        [Column(TypeName = "varchar(100)")]
+        
         public string Text { get; set; }
         public ICollection<Choice> Choices { get; set; }
         /// <summary>

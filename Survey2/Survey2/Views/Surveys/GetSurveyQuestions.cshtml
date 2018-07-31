@@ -13,6 +13,7 @@
             <th>Choice</th>
 
         </tr>
+
         @if (Model.Question.Count() == 0)
         {
             <tr>
@@ -26,7 +27,7 @@
             <tr>
                 @foreach (var question in Model.Question)
                 {
-                    ///Questionları bastır
+
 
                     <td>@question.Text</td>
 
