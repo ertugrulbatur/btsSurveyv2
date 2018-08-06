@@ -199,14 +199,14 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     @*<li class="header">EGİP MENÜ</li>*@
 
-                    <li id="navFlightPlanning">
+                    <li id="navPersonal">
                         <a href=@Url.Action("Index","Admin")>
-                            <span>Create User</span>
+                            <i class="fa fa-users"></i><span>Kullanıcılar</span>
                         </a>
                     </li>
-                    <li id="navPersonal">
+                    <li id="navFlightPlanning">
                         <a href=@Url.Action("Index","Surveys")>
-                            <i class="fa fa-users"></i> <span>Survey</span>
+                            <i class="fa fa-check-circle"></i><span>Anketler</span>
                         </a>
                     </li>
 
@@ -233,7 +233,7 @@
 
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.0
+                <b>Version</b> 1.0.3
             </div>
             <strong>Tüm Hakları Saklıdır. &copy; @DateTime.Now.Year <a href="http://www.bites.com.tr">BİTES</a>.</strong>
         </footer>
@@ -452,6 +452,7 @@
 
     @RenderSection("flightPlanning", required: false)
     @RenderSection("personal", required: false)
+    @RenderSection("Scripts", required: false)
 
     <script type="text/javascript">
 

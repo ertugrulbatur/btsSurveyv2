@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Survey2.Models.ViewModels;
 
 namespace Survey2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SurveysController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -197,20 +199,22 @@ namespace Survey2.Controllers
         [HttpPost]
         public async Task<IActionResult> AddQuestion([Bind("Text,SID,UID,Id")] Guid Id, Question question)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || question.Text != null)
             {
+           
                 question.dateTime = DateTime.Now;
                 question.TimeStamp = double.Parse(question.dateTime.ToString("yyyyMMddhhmmss"));
                 question.SID = Id;                  
                 question.Id = Guid.NewGuid();                 
                 question.UID = _context.Survey.Where(x => x.Id == Id).FirstOrDefault().UID;
+                //question.Type = 
 
                 //question.TimeStamp = double.Parse(question.dateTime.ToString("yyyyMMddhhmmss"));                
                 _context.Question.Add(question);
                 
                 await _context.SaveChangesAsync();
                 return RedirectToAction("AddChoice", question);                
-            }
+            }            
             //ViewData["UID"] = new SelectList(_context.AppUser, "Id", "UserName", question.UID);
             //ViewData["SID"] = new SelectList(_context.Survey, "Id", "Text", question.SID);
             return View();
@@ -220,30 +224,37 @@ namespace Survey2.Controllers
         public IActionResult AddChoice(Question question)
         {
             ChoiceIdViewModel choiceidviewmodel = new ChoiceIdViewModel();
-            choiceidviewmodel.QuestId = question.Id;            
+            choiceidviewmodel.QuestId = question.Id;
+            choiceidviewmodel.QuestionText = question.Text;
             //Guid guid = new Guid();
             //guid = question.Id;
             return View(choiceidviewmodel);
         }
         [HttpPost]
-        public async Task<IActionResult> AddChoice(ChoiceIdViewModel choiceidviewmodel)
+        public IActionResult AddChoice(string choicetext, string questionid)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && choicetext != null)
             {
-                //choice.QId = Id;
-                choiceidviewmodel.Choice.dateTime = DateTime.Now;
-                choiceidviewmodel.Choice.Id = Guid.NewGuid();
-                choiceidviewmodel.Choice.TimeStamp = double.Parse(choiceidviewmodel.Choice.dateTime.ToString("yyyyMMddhhmmss"));
-                choiceidviewmodel.Choice.QId = choiceidviewmodel.QuestId;
-                
+                Choice choice = new Choice();
+                choice.dateTime = DateTime.Now;
+                choice.Id = Guid.NewGuid();
+                choice.TimeStamp = double.Parse(choice.dateTime.ToString("yyyyMMddhhmmss"));
+                choice.QId = new Guid(questionid);
+                choice.Text = choicetext;
                 //choice.UID = _context.Survey.Where(x => x.Id == Id).FirstOrDefault().UID;
                 //choiceidviewmodel.QuestId = choiceidviewmodel.Choice.QId;
 
-                _context.Choice.Add(choiceidviewmodel.Choice);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+                _context.Add(choice);
+                _context.SaveChanges();
+                var AllQuestionChoices = _context.Choice.Where(a => a.QId == new Guid(questionid)).Select(a => a.Text).ToList();
+                return Json(choicetext);
+            }           
+
             return View();
+        }
+        public IActionResult GetChoices() {
+
+            return StatusCode(200);
         }
     }
 }

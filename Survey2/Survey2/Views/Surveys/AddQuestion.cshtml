@@ -6,19 +6,35 @@
 <div class="container col-md-12">
     <h2>AddQuestion</h2>
     <hr />
+    <div class="row col-md-12">
+        <div class="input-group margin">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Soru Türü
+                    <span class="fa fa-caret-down"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Çoktan Seçmeli</a></li>
+                    <li><a href="#">Tek Seçenekli</a></li>
+                    <li><a href="#">Yorum</a></li>                    
+                </ul>
+            </div>
+            <!-- /btn-group -->
+            <input type="text" class="form-control">
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <form asp-action="AddQuestion" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
+                    @*<input class="switch" asp-for="Type" />*@
                     <label asp-for="Text" class="control-label"></label>
                     <input asp-for="Text" class="form-control" />
                     <span asp-validation-for="Text" class="text-danger"></span>
-                </div>
-                <div>
                     
                 </div>
-
+               
                 <div class="form-group">
                     <input type="submit" value="Soru Oluştur" class="btn btn-default" />
                     @*<input type="hidden" value="@Model.Id" asp-for="Id" />*@

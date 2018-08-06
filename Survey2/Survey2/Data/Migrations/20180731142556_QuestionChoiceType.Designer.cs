@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Survey2.Data;
 
 namespace Survey2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180731142556_QuestionChoiceType")]
+    partial class QuestionChoiceType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,8 +192,7 @@ namespace Survey2.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Text")
-                        .IsRequired();
+                    b.Property<string>("Text");
 
                     b.Property<string>("UID");
 
@@ -235,8 +236,7 @@ namespace Survey2.Data.Migrations
 
                     b.Property<Guid>("QId");
 
-                    b.Property<string>("Text")
-                        .IsRequired();
+                    b.Property<string>("Text");
 
                     b.Property<double>("TimeStamp");
 
@@ -256,8 +256,7 @@ namespace Survey2.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Text")
-                        .IsRequired();
+                    b.Property<string>("Text");
 
                     b.Property<string>("UID");
 
@@ -275,8 +274,7 @@ namespace Survey2.Data.Migrations
 
                     b.Property<Guid>("SID");
 
-                    b.Property<string>("Text")
-                        .IsRequired();
+                    b.Property<string>("Text");
 
                     b.Property<double>("TimeStamp");
 
@@ -300,8 +298,7 @@ namespace Survey2.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Text")
-                        .IsRequired();
+                    b.Property<string>("Text");
 
                     b.Property<double>("TimeStamp");
 

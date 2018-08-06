@@ -8,6 +8,7 @@ namespace Survey2.Models.ViewModels
     public class ChoiceIdViewModel
     {
         public Choice Choice { get; set; } = new Choice();
-        public Guid QuestId { get; set; } 
+        public Guid QuestId { get; set; }
+        public string QuestionText { get; set; }
     }
 }

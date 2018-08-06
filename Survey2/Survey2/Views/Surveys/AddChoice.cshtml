@@ -4,7 +4,7 @@
     ViewData["Title"] = "AddChoice";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<text>@Model.QuestId</text>
+<text>@Model.QuestionText</text>
 
 <div class="container col-md-12">
     <h2>AddChoice</h2>
@@ -12,55 +12,81 @@
         <thead>
             <tr>
                 <th>
-                    
-                   @* @Html.DisplayFor(model => model.Question.Text)*@                    
+
+                    @* @Html.DisplayFor(model => model.Question.Text)*@
                 </th>
 
             </tr>
         </thead>
         @*<tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Text)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Text)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
 
 
-        </tbody>*@
+            </tbody>*@
     </table>
 
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="AddChoice" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Choice.Text" class="control-label"></label>
-                    <input asp-for="Choice.Text" class="form-control" />
-                    <span asp-validation-for="Choice.Text" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="hidden" value="@Model.QuestId" asp-for="@Model.QuestId" />
-                   @* <input type="hidden" value="@Model.Question.Id" name="QId" />*@
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Choice.Text" class="control-label"></label>
+                <input id="Choice_Text" class="form-control" />
+                <span asp-validation-for="Choice.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@Model.QuestId" asp-for="@Model.QuestId" />
+                @* <input type="hidden" value="@Model.Question.Id" name="QId" />*@
+                <input onclick="GetChoice()" type="submit" value="Cevap Oluştur" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 </div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Choices</th>
+
+        </tr>
+    </thead>
+    <tbody id="ChoicesTBody">
+        </tbody>
+</table>
+
+
+
+
+@section Scripts {
+    <script>
+
+
+        function GetChoice() {
+            var ChoiceText = $("#Choice_Text").val();
+            var QuestionId = $("#QuestId").val();
+            $.ajax({
+                url: "@Url.Action("AddChoice", "Surveys")",
+                type: "post",
+                data: {choicetext: ChoiceText, questionid: QuestionId},
+                success: function (data) {
+                     $("#ChoicesTBody").append("<tr><td>"+data+"</td></tr>")
+
+                
+                }
+            });
+        }
+
+    </script>
+}

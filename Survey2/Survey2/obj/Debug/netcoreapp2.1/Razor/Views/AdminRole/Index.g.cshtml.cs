@@ -80,7 +80,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("<div class=\"container col-md-12\">\r\n    <div class=\"bg-primary text-white col-lg-pull-1 m-1\">\r\n        <h2>Role List</h2>\r\n\r\n    </div>\r\n    ");
             EndContext();
             BeginContext(262, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3a9dcd97dbb40eaa7004b60eaf81354", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07e0b034144b4282bbdd1194f8d570c1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -173,7 +173,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("</td>      \r\n                    ");
             EndContext();
             BeginContext(1075, 34, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("td", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c449e5799f241e5812a9c49f5f1286b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("td", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b4b2dbb6588436d85fbf7db9e522950", async() => {
             }
             );
             __Survey2_Infrastructure_RoleUserTagHelper = CreateTagHelper<global::Survey2.Infrastructure.RoleUserTagHelper>();
@@ -199,12 +199,12 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1161, 309, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "75376d064e044ddbb699d6520542c06d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "213300b941484ec58a647704d8d45c54", async() => {
                 BeginContext(1225, 135, true);
                 WriteLiteral("\r\n                            <button type=\"submit\" value=\"Delete\" class=\"btn btn-danger\">Delete</button>\r\n                            ");
                 EndContext();
                 BeginContext(1360, 77, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c81b93b616f244e1a24e93a043f25575", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "303346700ccb49aa9bf2efcb0c066b17", async() => {
                     BeginContext(1429, 4, true);
                     WriteLiteral("Edit");
                     EndContext();
@@ -286,7 +286,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("    </table>\r\n\r\n    ");
             EndContext();
             BeginContext(1574, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f465b11e5306494c953a1c243e06c3ce", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0169204f70e64cf695befffd42c55203", async() => {
                 BeginContext(1621, 11, true);
                 WriteLiteral("Create Role");
                 EndContext();
