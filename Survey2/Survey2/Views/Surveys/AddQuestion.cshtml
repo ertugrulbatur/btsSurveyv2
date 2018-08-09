@@ -4,50 +4,115 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container col-md-12">
-    <h2>AddQuestion</h2>
+    <h2>Soru Ekle</h2>
     <hr />
     <div class="row col-md-12">
-        <div class="input-group margin">
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Soru Türü
-                    <span class="fa fa-caret-down"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Çoktan Seçmeli</a></li>
-                    <li><a href="#">Tek Seçenekli</a></li>
-                    <li><a href="#">Yorum</a></li>                    
-                </ul>
-            </div>
-            <!-- /btn-group -->
-            <input type="text" class="form-control">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="AddQuestion" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    @*<input class="switch" asp-for="Type" />*@
-                    <label asp-for="Text" class="control-label"></label>
-                    <input asp-for="Text" class="form-control" />
-                    <span asp-validation-for="Text" class="text-danger"></span>
+        <form asp-action="AddQuestion">
+            <div class="input-group margin row col-md-6">
+                <div class="col-md-4">
+                    @*<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Soru Türü
+                            <span class="fa fa-caret-down"></span>
+                        </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="-MultiChoice">Çoktan Seçmeli</a></li>
+                                <li><a href="-">Tek Seçenekli</a></li>
+                                <li><a href="#">Yorum</a></li>
+                            </ul>*@ 
                     
+                    <select class="form-control" id="typeSelector" asp-for="Type">
+                        <option value="Multi">Çoktan Seçmeli</option>
+                        <option value="Single">Tek Cevaplı</option>
+                        <option value="Comment">Yorum</option>
+                    </select>
                 </div>
-               
-                <div class="form-group">
-                    <input type="submit" value="Soru Oluştur" class="btn btn-default" />
-                    @*<input type="hidden" value="@Model.Id" asp-for="Id" />*@
+                <div class="col-md-8">
+                    <input asp-for="Text" type="text" class="form-control">
+
                 </div>
-            </form>
-        </div>
+                <!-- /btn-group -->
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Soru Oluştur" class="btn btn-default" />              
+                @*<input type="hidden" value="@Model.Id" name="qID" />*@
+            </div>
+        </form>
+    </div>
+    @*<div class="row">
+                <div class="col-md-4">
+                    <form asp-action="AddQuestion" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            @*<input class="switch" asp-for="Type" />
+                            <label asp-for="Text" class="control-label"></label>
+                            <input asp-for="Text" class="form-control" />
+                            <span asp-validation-for="Text" class="text-danger"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Soru Oluştur" class="btn btn-default" />
+                            @*<input type="hidden" value="@Model.Id" asp-for="Id" />
+                        </div>
+                    </form>
+                </div>
+        </div>*@
+
+
     </div>
 
 
 
+    @*@section Scripts {
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        function OnBClick() {
+            var Type = $('#typeSelector').val();
+            var Text = $('#questText').val();
+            var sId = "@ViewBag.AddQuestionSurveyId";
+            alert(sId);
+            $.ajax({
+                url: "@Url.Action("AddQuestion", "Surveys")",
+                type: "post",
+                data: {
+                    url: "/Surveys/AddQuestion",
+                    Id: sId,
+                    type: Type,
+                    text: Text,
 
+                },
+                error: function () {
+                    toastr.error("Eklenemedi.");
+                 },
+                success: function (data) {
+                    toastr.success("Eklendi.");
+                    window.location.href = data.url;
+                }
 
-
-</div>
+            });
+        }
+       
+    </script>
+    }*@

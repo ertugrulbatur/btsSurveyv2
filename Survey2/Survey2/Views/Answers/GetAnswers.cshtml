@@ -1,0 +1,21 @@
+﻿@model Survey
+@{
+    ViewData["Title"] = "GetAnswers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var question in Model.Questions)
+{    
+        <tr>
+
+            <td>@question.Text</td>
+
+
+            @foreach (var choice in question.Choices)
+            {
+                <td>@choice.Text</td>
+            }
+        </tr>
+    }
+
+

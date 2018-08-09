@@ -10,5 +10,6 @@ namespace Survey2.Models.ViewModels
         public Choice Choice { get; set; } = new Choice();
         public Guid QuestId { get; set; }
         public string QuestionText { get; set; }
+        public string QuestionType { get; set; }
     }
 }

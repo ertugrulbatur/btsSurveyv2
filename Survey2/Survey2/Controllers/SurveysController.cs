@@ -178,18 +178,21 @@ namespace Survey2.Controllers
 
         public IActionResult GetSurveyQuestions(Guid? id)
         {
-             var sModel = _context.Survey.Join(_context.Question,
-                    sur => sur.Id,
-                    quest => quest.SID,
-                    (sur, quest) => new SurveyViewModel()
-                    {
-                        Question = _context.Question.Where(x => x.SID== quest.SID).ToList(),
-                        Survey = _context.Survey.Where(x => x.Id == quest.SID).FirstOrDefault(),
-                        Choice = _context.Choice.Where(x=>x.QId == quest.Id).ToList()
-                    }
-                ).Where(x=> x.Survey.Id == id).FirstOrDefault();                
+            
+             //var sModel = _context.Survey.Join(_context.Question,
+             //       sur => sur.Id,
+             //       quest => quest.SID,                    
+             //       (sur, quest) => new SurveyViewModel()
+             //       {
+             //           QCVm = _context.Question.Where(x => x.SID == quest.SID).ToList(),
+             //           Survey = _context.Survey.Where(x => x.Id == quest.SID).FirstOrDefault(),
+             //           Choice = _context.Choice.Where(x => x.QId == quest.Id).ToList()
+             //       }
+             //   ).Where(x=> x.Survey.Id == id).FirstOrDefault();
 
-            return View(sModel);
+            Survey S1 = _context.Survey.Where(x => x.Id == id).Include(x => x.Questions).ThenInclude(x => x.Choices).FirstOrDefault();
+
+            return View(S1);
         }
         [HttpGet]
         public IActionResult AddQuestion()
@@ -226,12 +229,13 @@ namespace Survey2.Controllers
             ChoiceIdViewModel choiceidviewmodel = new ChoiceIdViewModel();
             choiceidviewmodel.QuestId = question.Id;
             choiceidviewmodel.QuestionText = question.Text;
+            choiceidviewmodel.QuestionType = question.Type;
             //Guid guid = new Guid();
             //guid = question.Id;
             return View(choiceidviewmodel);
         }
         [HttpPost]
-        public IActionResult AddChoice(string choicetext, string questionid)
+        public IActionResult AddChoice(string choicetext, string questionid, string questionType)
         {
             if (ModelState.IsValid && choicetext != null)
             {
@@ -241,6 +245,7 @@ namespace Survey2.Controllers
                 choice.TimeStamp = double.Parse(choice.dateTime.ToString("yyyyMMddhhmmss"));
                 choice.QId = new Guid(questionid);
                 choice.Text = choicetext;
+                choice.Type = questionType;
                 //choice.UID = _context.Survey.Where(x => x.Id == Id).FirstOrDefault().UID;
                 //choiceidviewmodel.QuestId = choiceidviewmodel.Choice.QId;
 
@@ -251,10 +256,6 @@ namespace Survey2.Controllers
             }           
 
             return View();
-        }
-        public IActionResult GetChoices() {
-
-            return StatusCode(200);
-        }
+        }        
     }
 }

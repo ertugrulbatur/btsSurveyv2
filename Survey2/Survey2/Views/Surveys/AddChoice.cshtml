@@ -46,6 +46,7 @@
             </div>
             <div class="form-group">
                 <input type="hidden" value="@Model.QuestId" asp-for="@Model.QuestId" />
+                <input asp-for="@Model.QuestionType" value="@Model.QuestionType" type="hidden" />
                 @* <input type="hidden" value="@Model.Question.Id" name="QId" />*@
                 <input onclick="GetChoice()" type="submit" value="Cevap Oluştur" class="btn btn-default" />
             </div>
@@ -62,28 +63,51 @@
 
         </tr>
     </thead>
-    <tbody id="ChoicesTBody">
-        </tbody>
+    <tbody id="ChoicesTBody"></tbody>
 </table>
 
 
 
 
 @section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
-
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
 
         function GetChoice() {
             var ChoiceText = $("#Choice_Text").val();
             var QuestionId = $("#QuestId").val();
+            var QuestType = $("#QuestionType").val();
             $.ajax({
                 url: "@Url.Action("AddChoice", "Surveys")",
                 type: "post",
-                data: {choicetext: ChoiceText, questionid: QuestionId},
+                data: { choicetext: ChoiceText, questionid: QuestionId, questionType: QuestType },
                 success: function (data) {
-                     $("#ChoicesTBody").append("<tr><td>"+data+"</td></tr>")
+                    toastr.success("Cevap Eklendi.");
+                    $("#ChoicesTBody").append("<tr><td>" + data + "</td></tr>");
 
-                
+
+                },
+
+                error: function (data) {
+                    toastr.error("Hata: Cevap Eklenemedi!");
+
                 }
             });
         }
