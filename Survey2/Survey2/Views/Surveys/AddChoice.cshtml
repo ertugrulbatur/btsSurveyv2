@@ -49,6 +49,7 @@
                 <input asp-for="@Model.QuestionType" value="@Model.QuestionType" type="hidden" />
                 @* <input type="hidden" value="@Model.Question.Id" name="QId" />*@
                 <input onclick="GetChoice()" type="submit" value="Cevap Oluştur" class="btn btn-default" />
+                <a asp-action="Index" class="btn btn-success">Soruyu Tamamla</a>
             </div>
         </div>
     </div>

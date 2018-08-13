@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Survey2.Models;
 
 namespace Survey2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminRoleController : Controller
     {
         private RoleManager<IdentityRole> roleManager;

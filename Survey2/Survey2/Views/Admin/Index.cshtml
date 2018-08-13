@@ -31,13 +31,13 @@
             foreach (var user in Model)
             {
             <tr>
-                <td>@user.Id</td>
+                @*<td>@user.Id</td>*@
                 <td>@user.UserName</td>
                 @* <td>@user.PasswordHash</td>*@
                 <td>
                     <form asp-route-id="@user.Id" asp-action="Delete" method="post">
-                        <button type="submit" value="Delete" class="btn btn-danger">Delete</button>
-                        <a asp-action="Update" asp-route-id="@user.Id" class="btn btn-primary">Update</a>
+                        <button type="submit" value="Delete" class="btn btn-danger">Sil</button>
+                        <a asp-action="Update" asp-route-id="@user.Id" class="btn btn-primary">Güncelle</a>
                     </form>
                 </td>
             </tr>

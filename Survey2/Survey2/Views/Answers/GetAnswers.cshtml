@@ -1,21 +1,89 @@
-﻿@model Survey
+﻿@model SurveyAnswerViewModel
 @{
     ViewData["Title"] = "GetAnswers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@foreach (var question in Model.Questions)
-{    
-        <tr>
+<head>
+    <link href="~/lib/adminlte/css/tile.css" rel="stylesheet" type="text/css" />
+</head>
 
-            <td>@question.Text</td>
-
+<div class="container col-md-12">
+    <form>
+        @foreach (var question in Model.Survey.Questions)
+        {
+            <p>@question.Text</p>
 
             @foreach (var choice in question.Choices)
             {
-                <td>@choice.Text</td>
+                if (choice.Type == "Multi")
+                {
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="searchable-container">
+                                <div class="items col-xs-5 col-sm-5 col-md-8 col-lg-3">
+                                    <div class="info-block block-info clearfix">
+                                        <div class="square-box pull-left">
+                                            <span class="glyphicon glyphicon-lg glyphicon-check"></span>
+                                        </div>
+                                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                            <label class="btn btn-default">
+                                                <div class="bizcontent col-md-12">
+                                                    <input asp-for="@Model.Answer.Choice" type ="checkbox" name="var_id[]" autocomplete="off" value="" class="icheck">
+                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                    <h5>@choice.Text</h5>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (choice.Type == "Single")
+                {
+                    <div class="btn-group col-md-12" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" autocomplete="off">@choice.Text
+                        </label>
+                    </div>
+                }
+                else if (choice.Type == "Comment")
+                {
+                    <p>LOL</p>
+
+                }
             }
-        </tr>
-    }
+
+        }
+    </form>
+
+
+
+
+
+
+
+
+</div>
+
+<script>
+    $(function () {
+        $('#search').on('keyup', function () {
+            var pattern = $(this).val();
+            $('.searchable-container .items').hide();
+            $('.searchable-container .items').filter(function () {
+                return $(this).text().match(new RegExp(pattern, 'i'));
+            }).show();
+        });
+    });
+
+    $('.icheck').on('change', function () {
+        if ($('.icheck:checked').length > 1) {
+            this.checked = false;
+        }
+    });
+</script>
 
 
