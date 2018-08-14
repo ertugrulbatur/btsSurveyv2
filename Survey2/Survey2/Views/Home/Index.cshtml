@@ -1,18 +1,96 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-@if (User.Identity.IsAuthenticated)
-{
-    <span>@User.Identity.Name</span>
-    <a asp-action="Logout" asp-controller="Account" class="btn btn-danger">
-        Logout
-    </a>
-    @*<button asp-></button>*@
-}
 
-else{ 
-    <a asp-action="Login" asp-controller="Account" class="btn btn-success">Login</a>
-    <a asp-action="Register" asp-controller="Account" class="btn btn-success">Register</a>
+
+
+
+    <div class="box box-danger">
+        <div class="box-header with-border">
+            <h3 class="box-title">YES-NO RATE</h3>
+
+            <div class="box-tools pull-right">
+
+            </div>
+        </div>
+        <div id="chartContainer" style="height: 280px; width: 100%;"></div>
+    </div>
+
+    
+
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-red">
+        <div class="inner">
+            <h3>65</h3>
+
+            <p>Total Number of Votes</p>
+        </div>
+
+        <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+        </a>
+    </div>
+</div>
+
+
+
+
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow">
+        <div class="inner">
+            <h3>44</h3>
+
+            <p>Total User</p>
+        </div>
+
+        <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+        </a>
+    </div>
+</div>
+
+
+@section Scripts{
+  
+    <script src="~/js/analytics.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/canvasjs.min.js"></script>
+    <script src="~/js/Chart.js"></script>
+   
+    <script src="~/js/fastclick.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+
+
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Yes-No Rate",
+                    horizontalAlign: "center"
+                },
+                data: [{
+                    type: "doughnut",
+                    startAngle: 60,
+                    //innerRadius: 60,
+                    indexLabelFontSize: 17,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                    dataPoints: [
+                        { y: 67, label: "Yes" },
+                        { y: 33, label: "No" },
+
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
 }

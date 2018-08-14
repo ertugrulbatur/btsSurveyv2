@@ -25,12 +25,12 @@ namespace Survey2.Controllers
             return View(await applicationDbContext.ToListAsync());           
         }
         [HttpGet]
-        public IActionResult GetAnswers(Guid? id)
+        public IActionResult GetAnswers(Guid id)
         {
             Survey S1 = _context.Survey.Where(x => x.Id == id).Include(x => x.Questions).ThenInclude(x => x.Choices).FirstOrDefault();
             SurveyAnswerViewModel surveyAnswer = new SurveyAnswerViewModel();
             surveyAnswer.Survey = S1;
-            surveyAnswer.Answer.SurveyId = S1.Id;
+            surveyAnswer.SurveyId = id;
             //surveyAnswer.Answer.dateTime = DateTime.Now;
             //surveyAnswer.Answer.Id = Guid.NewGuid();             
             //surveyAnswer.Answer.TimeStamp = double.Parse(surveyAnswer.Answer.dateTime.ToString("yyyyMMddhhmmss"));

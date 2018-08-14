@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<AppUser>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
 
 <div class="container col-md-12">
     <div class="bg-primary text-white col-lg-pull-1 m-1">
-        <h2>User List</h2>
+        <h2 style="background-color:darkred;">User List</h2>
 
     </div>
     <div class="text-danger" asp-validation-summary="ModelOnly"></div>

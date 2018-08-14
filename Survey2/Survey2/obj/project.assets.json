@@ -12218,23 +12218,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ertugrul Batur\\.nuget\\packages\\": {},
+    "C:\\Users\\SONY\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ertugrul Batur\\Desktop\\BITES\\Projects\\Survey2\\Survey2\\Survey2.csproj",
+      "projectUniqueName": "C:\\Users\\SONY\\Desktop\\Proje\\btsSurveyv2\\Survey2\\Survey2\\Survey2.csproj",
       "projectName": "Survey2",
-      "projectPath": "C:\\Users\\Ertugrul Batur\\Desktop\\BITES\\Projects\\Survey2\\Survey2\\Survey2.csproj",
-      "packagesPath": "C:\\Users\\Ertugrul Batur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ertugrul Batur\\Desktop\\BITES\\Projects\\Survey2\\Survey2\\obj\\",
+      "projectPath": "C:\\Users\\SONY\\Desktop\\Proje\\btsSurveyv2\\Survey2\\Survey2\\Survey2.csproj",
+      "packagesPath": "C:\\Users\\SONY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SONY\\Desktop\\Proje\\btsSurveyv2\\Survey2\\Survey2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ertugrul Batur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SONY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

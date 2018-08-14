@@ -8,6 +8,7 @@ namespace Survey2.Models.ViewModels
     public class SurveyAnswerViewModel
     {
         public Survey Survey { get; set; }
-        public Answer Answer { get; set; }
+        public Answer Answer { get; set; } = new Answer();
+        public Guid SurveyId { get; set; }
     }
 }

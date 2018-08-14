@@ -8,7 +8,6 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="~/lib/adminlte/css/ionicons.min.css" rel="stylesheet" />
     <link href="~/lib/adminlte/css/AdminLTE.css" rel="stylesheet" />
     <link href="~/lib/adminlte/css/_all-skins.min.css" rel="stylesheet" />
     <link href="~/lib/plugins/vertical-tabs/bootstrap.vertical-tabs.css" rel="stylesheet" />
@@ -16,10 +15,40 @@
     <link href="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.css" rel="stylesheet" />
     <link href="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
     <link href="~/lib/site/css/site.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" rel="stylesheet" />    
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" rel="stylesheet" />
+    <link href="~/lib/adminlte/css/ionicons.min.css" rel="stylesheet" />
     <!-- Google Font -->
     <link href="~/lib/adminlte/css/google-font.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/adminlte/js/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.tr.js"></script>
+    <script src="~/lib/adminlte/js/fastclick.js"></script>
+    <script src="~/lib/adminlte/js/adminlte.min.js"></script>
+    <script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/js/canvasjs.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/analytics.js"></script>
+    <script src="~/js/Chart.js"></script>
+    <script src="~/js/fastclick.js"></script>
+    <script src="~/js/adminlte.min.js"></script>
+  
+
+
+
+
+    
+
+
+
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -135,7 +164,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="~/lib/site/img/biteslogo.png" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Survey</span>
+                                <span class="hidden-xs" style="text-transform:capitalize;">@User.Identity.Name</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -145,16 +174,19 @@
                                     <p>
                                         SURVEY <br /> BİTES
                                         <small>Survey Giriş</small>
+                                        <h4 style="color:white;text-transform:capitalize;">@User.Identity.Name</h4>
                                     </p>
                                 </li>
 
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profil</a>
+                                        <a href="#" class="btn ">Profil</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Çıkış Yap</a>
+                                        <a asp-action="Logout" asp-controller="Account" class="btn ">
+                                            Çıkış Yap
+                                        </a>
                                     </div>
                                 </li>
                             </ul>
@@ -228,7 +260,7 @@
             <!-- Main content -->
             <section class="content">
 
-                
+
                 @RenderBody()
 
             </section>
@@ -291,8 +323,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+                            
 
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
@@ -444,16 +475,12 @@
 
 
 
-    <script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/adminlte/js/jquery.slimscroll.min.js"></script>
-    <script src="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-    <script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-    <script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.tr.js"></script>
-    <script src="~/lib/adminlte/js/fastclick.js"></script>
-    <script src="~/lib/adminlte/js/adminlte.min.js"></script>
-    <script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
+    
+    
+
+
+
+
 
     @RenderSection("flightPlanning", required: false)
     @RenderSection("personal", required: false)
