@@ -13,7 +13,13 @@ namespace Survey2.Models
         [Required]
         [UIHint("Password")]
         public string Password { get; set; }
-        //[Required]
-        //public string Email { get; set; }
+         [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+        
+
+        public string Department { get; set; }
+        
+
     }
 }

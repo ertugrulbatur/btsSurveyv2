@@ -42,7 +42,8 @@ namespace Survey2.Controllers
                 user.UserName = model.Name;
                 //user.PasswordHash = model.Password;
                 user.Email = null;
-
+                user.Department=model.Department;
+                user.Email = model.Email;
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)

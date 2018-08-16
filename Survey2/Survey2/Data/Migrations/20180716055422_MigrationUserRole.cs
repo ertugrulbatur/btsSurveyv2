@@ -20,3 +20,4 @@ namespace Survey2.Data.Migrations
         }
     }
 }
+//D:\MASAÜSTÜ\proje2\btsSurveyv2\Survey2\Survey2\Data\Migrations\20180712103828_update.Designer.cs

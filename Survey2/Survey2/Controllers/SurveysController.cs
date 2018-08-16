@@ -12,7 +12,7 @@ using Survey2.Models.ViewModels;
 
 namespace Survey2.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     public class SurveysController : Controller
     {
         private readonly ApplicationDbContext _context;

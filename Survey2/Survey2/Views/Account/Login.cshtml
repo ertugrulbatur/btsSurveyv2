@@ -5,7 +5,7 @@
 }
 <div class="container col-md-12">
     <div class="bg-primary text-white col-lg-pull-1 m-1">
-        <h2>Login</h2>
+        <h2>Giriş Sayfası</h2>
 
     </div>
 
@@ -15,7 +15,7 @@
         <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
 
         <div class="form-group">
-            <label asp-for="Name"></label>
+            <label asp-for="Name">Kullanıcı Adı</label>
             <input asp-for="Name" class="form-control" />
 
         </div>
@@ -24,13 +24,13 @@
             <input asp-for="Password" class="form-control" />
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Giriş</button>
 
 
 
     </form>
     @*<button type="submit" value="ResetPassword" class="btn btn-primary">Reset Password</button>*@
-    <a asp-action="ResetPassword" class="btn btn-danger">Reset Password</a>
+    <a asp-action="ResetPassword" class="btn btn-danger">Şifre Yenile</a>
 
 
 

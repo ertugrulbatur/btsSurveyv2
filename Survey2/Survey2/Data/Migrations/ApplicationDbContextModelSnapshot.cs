@@ -320,6 +320,9 @@ namespace Survey2.Data.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<string>("Department");
+
+                    b.Property<string>("EMAİL");
 
                     b.ToTable("AppUser");
 
