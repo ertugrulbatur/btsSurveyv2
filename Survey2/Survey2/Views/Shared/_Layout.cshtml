@@ -18,6 +18,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" rel="stylesheet" />
     <link href="~/lib/adminlte/css/ionicons.min.css" rel="stylesheet" />
     <!-- Google Font -->
+  
     <link href="~/lib/adminlte/css/google-font.css" rel="stylesheet" />
     <script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
@@ -38,12 +39,12 @@
     <script src="~/js/Chart.js"></script>
     <script src="~/js/fastclick.js"></script>
     <script src="~/js/adminlte.min.js"></script>
-  
 
 
 
 
-    
+
+
 
 
 
@@ -64,7 +65,7 @@
                 <span class="logo-lg"><img src="~/lib/site/img/biteslogo.png" height="40" /></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
+            <nav class="navbar navbar-static-top" style="color:#367fa9">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -77,7 +78,7 @@
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" style="height:45px;" data-toggle="dropdown">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="label label-success">4</span>
                             </a>
@@ -184,7 +185,7 @@
                                         <a href="#" class="btn ">Profil</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a asp-action="Logout" asp-controller="Account" class="btn ">
+                                        <a asp-action="Logout" asp-controller="Account" class="btn">
                                             Çıkış Yap
                                         </a>
                                     </div>
@@ -231,19 +232,16 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     @*<li class="header">EGİP MENÜ</li>*@
 
-                    <li id="navPersonal">
-                        <a href=@Url.Action("Index","Admin")>
-                            <i class="fa fa-users"></i><span>Kullanıcılar</span>
-                        </a>
-                    </li>
-                    <li id="navFlightPlanning">
-                        <a href=@Url.Action("Index","Surveys")>
-                            <i class="fa fa-check-circle"></i><span>Anket Oluştur</span>
-                        </a>
-                    </li>
+
                     <li id="navAnketCoz">
                         <a href=@Url.Action("Index","Answers")>
                             <i class="fa fa-check-circle"></i><span>Anketler</span>
+                        </a>
+                    </li>
+
+                    <li id="navAnketCoz">
+                        <a href=@Url.Action("Index","Annoucements")>
+                            <i class="fa fa-bell"></i><span>Duyurular</span>
                         </a>
                     </li>
 
@@ -323,13 +321,13 @@
                             </a>
                         </li>
                         <li>
-                            
 
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
 
-                                    <p>Execution time 5 seconds</p>
-                                </div>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                <p>Execution time 5 seconds</p>
+                            </div>
                             </a>
                         </li>
                     </ul>
@@ -471,20 +469,9 @@
     </div>
     <!-- ./wrapper -->
 
+  
 
 
-
-
-    
-    
-
-
-
-
-
-    @RenderSection("flightPlanning", required: false)
-    @RenderSection("personal", required: false)
-    @RenderSection("Scripts", required: false)
 
     <script type="text/javascript">
 
@@ -541,5 +528,7 @@
 
         })
     </script>
+
+
 </body>
 </html>

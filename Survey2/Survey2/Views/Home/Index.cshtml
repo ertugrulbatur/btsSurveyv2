@@ -1,6 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@model IEnumerable<Annoucement>
+@{
+    if (this.User.IsInRole("Admin") || !this.User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 
@@ -8,18 +15,18 @@
 
 
 
-    <div class="box box-danger">
-        <div class="box-header with-border">
-            <h3 class="box-title">YES-NO RATE</h3>
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">YES-NO RATE</h3>
 
-            <div class="box-tools pull-right">
+        <div class="box-tools pull-right">
 
-            </div>
         </div>
-        <div id="chartContainer" style="height: 280px; width: 100%;"></div>
     </div>
+    <div id="chartContainer" style="height: 280px; width: 100%;"></div>
+</div>
 
-    
+
 
 <div class="col-lg-3 col-xs-6">
     <!-- small box -->
@@ -54,43 +61,90 @@
     </div>
 </div>
 
-
-@section Scripts{
-  
-    <script src="~/js/analytics.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/canvasjs.min.js"></script>
-    <script src="~/js/Chart.js"></script>
-   
-    <script src="~/js/fastclick.js"></script>
-    <script src="~/js/jquery.min.js"></script>
+<div class="info-box bg-aqua pull-right">
 
 
-    <script>
-        window.onload = function () {
+    <div class="info-box-content">
+        <span class="info-box-text">
+            asdasd
+        </span>
 
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                title: {
-                    text: "Yes-No Rate",
-                    horizontalAlign: "center"
-                },
-                data: [{
-                    type: "doughnut",
-                    startAngle: 60,
-                    //innerRadius: 60,
-                    indexLabelFontSize: 17,
-                    indexLabel: "{label} - #percent%",
-                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-                    dataPoints: [
-                        { y: 67, label: "Yes" },
-                        { y: 33, label: "No" },
+        <span class="info-box-text">
 
-                    ]
-                }]
-            });
-            chart.render();
 
-        }
-    </script>
-}
+        </span>
+
+
+
+    </div>
+    <!-- /.info-box-content -->
+</div>
+
+<script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/adminlte/js/jquery.slimscroll.min.js"></script>
+<script src="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.tr.js"></script>
+<script src="~/lib/adminlte/js/fastclick.js"></script>
+<script src="~/lib/adminlte/js/adminlte.min.js"></script>
+<script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+
+    $(document).ready(function () {
+
+
+        $('.sidebar-menu').tree();
+
+
+        $('[data-toggle="popover"]').popover()
+
+
+
+
+        $('.form_datetime').datetimepicker({
+            language: 'tr',
+            format: 'dd-mm-yyyy hh:ii',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+
+        $('.form_date').datetimepicker({
+            language: 'tr',
+            format: 'dd-mm-yyyy',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+
+        $('.form_time').datetimepicker({
+            language: 'tr',
+            format: 'hh:ii',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+
+    })
+</script>

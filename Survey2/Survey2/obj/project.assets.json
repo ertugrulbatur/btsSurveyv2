@@ -12224,11 +12224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SONY\\Desktop\\Proje\\btsSurveyv2\\Survey2\\Survey2\\Survey2.csproj",
+      "projectUniqueName": "C:\\Users\\SONY\\Desktop\\ASMDĞSAD\\btsSurveyv2\\Survey2\\Survey2\\Survey2.csproj",
       "projectName": "Survey2",
-      "projectPath": "C:\\Users\\SONY\\Desktop\\Proje\\btsSurveyv2\\Survey2\\Survey2\\Survey2.csproj",
+      "projectPath": "C:\\Users\\SONY\\Desktop\\ASMDĞSAD\\btsSurveyv2\\Survey2\\Survey2\\Survey2.csproj",
       "packagesPath": "C:\\Users\\SONY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SONY\\Desktop\\Proje\\btsSurveyv2\\Survey2\\Survey2\\obj\\",
+      "outputPath": "C:\\Users\\SONY\\Desktop\\ASMDĞSAD\\btsSurveyv2\\Survey2\\Survey2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

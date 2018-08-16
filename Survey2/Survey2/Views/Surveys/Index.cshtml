@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<Survey2.Models.Survey>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
 }
 
 <h2 style="background-color:darkred;color:white">Anket Oluştur</h2>
@@ -20,21 +22,22 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Text)
-            </td>
-            <td>                
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                <a asp-action="GetSurveyQuestions" asp-route-id="@item.Id" class="btn btn-warning">Get Survey</a>
-                <a asp-action="AddQuestion" asp-route-id="@item.Id" class="btn btn-danger">Soru ekle</a>
-                @*<a asp-action="GetAnswers" asp-controller="Answers" asp-route-id="@item.Id" class="btn btn-outline-primary">Soru Cevapla</a>*@
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="GetSurveyQuestions" asp-route-id="@item.Id" class="btn btn-warning">Get Survey</a>
+                    <a asp-action="AddQuestion" asp-route-id="@item.Id" class="btn btn-danger">Soru ekle</a>
+                    @*<a asp-action="GetAnswers" asp-controller="Answers" asp-route-id="@item.Id" class="btn btn-outline-primary">Soru Cevapla</a>*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -46,4 +49,73 @@ $(function Redirect(){
     window.location.href = "@Url.Action("GetAnswers","AnswersController")";
   });
 });
+</script>
+
+<script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/adminlte/js/jquery.slimscroll.min.js"></script>
+<script src="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.tr.js"></script>
+<script src="~/lib/adminlte/js/fastclick.js"></script>
+<script src="~/lib/adminlte/js/adminlte.min.js"></script>
+<script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+
+    $(document).ready(function () {
+
+
+        $('.sidebar-menu').tree();
+
+
+        $('[data-toggle="popover"]').popover()
+
+
+
+
+        $('.form_datetime').datetimepicker({
+            language: 'tr',
+            format: 'dd-mm-yyyy hh:ii',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+
+        $('.form_date').datetimepicker({
+            language: 'tr',
+            format: 'dd-mm-yyyy',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+
+        $('.form_time').datetimepicker({
+            language: 'tr',
+            format: 'hh:ii',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+
+    })
 </script>

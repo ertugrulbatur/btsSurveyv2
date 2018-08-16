@@ -1,44 +1,136 @@
-﻿@model IEnumerable<Survey2.Models.Annoucement>
+﻿@model IEnumerable<Annoucement>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (this.User.IsInRole("Admin") || !this.User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
-<h2>BTS</h2>
+
+<h2>DUYURULAR</h2>
 
 <p>
     <a asp-action="Create" class="btn btn-success">Yeni Oluştur</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                Duyurular
-            </th>
-            <th>
 
-            </th>
-            <th></th>
-        </tr>
-    </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Text)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AppUser.Id)
-                </td>
-                <td>
-                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Düzenle</a>
-                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">Detay</a>
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Sil</a>
-                </td>
-            </tr>
-        }
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">DUYURULAR</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row">
+                        <div class="col-sm-12">
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                <thead>
+                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" style="width: 71px;" aria-sort="ascending">Rendering engine</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 91px;"></th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 79px;"></th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 58px;"></th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 37px;"></th></tr>
+                                </thead>
+                                <tbody>
+
+
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Gecko</td>
+                                        <td>Firefox 1.0</td>
+
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">Gecko</td>
+                                        <td>Firefox 1.5</td>
+
+                                    </tr>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th></tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div><div class="row"><div class="col-sm-5"><div class="dataTables_info    " id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-5"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+
     </tbody>
 
 </table>
+
+<script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/adminlte/js/jquery.slimscroll.min.js"></script>
+<script src="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.tr.js"></script>
+<script src="~/lib/adminlte/js/fastclick.js"></script>
+<script src="~/lib/adminlte/js/adminlte.min.js"></script>
+<script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+
+    $(document).ready(function () {
+
+
+        $('.sidebar-menu').tree();
+
+
+        $('[data-toggle="popover"]').popover()
+
+
+
+
+        $('.form_datetime').datetimepicker({
+            language: 'tr',
+            format: 'dd-mm-yyyy hh:ii',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+
+        $('.form_date').datetimepicker({
+            language: 'tr',
+            format: 'dd-mm-yyyy',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+
+        $('.form_time').datetimepicker({
+            language: 'tr',
+            format: 'hh:ii',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+
+    })
+</script>

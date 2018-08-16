@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
 
 
-    
+
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -21,6 +21,7 @@
 
     <!-- Google Font -->
     <link href="~/lib/adminlte/css/google-font.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.min.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -33,10 +34,10 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">BTS</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><img src="~/lib/site/img/biteslogo.png"  height="40" /></span>
+                <span class="logo-lg"><img src="~/lib/site/img/biteslogo.png" height="40" /></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" >
+            <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -45,7 +46,7 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <div class="navbar-custom-menu" >
+                <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
@@ -99,7 +100,7 @@
                             </ul>
                         </li>
                         <!-- Tasks: style can be found in dropdown.less -->
-                        <li class="dropdown tasks-menu" >
+                        <li class="dropdown tasks-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-flag-o"></i>
                                 <span class="label label-danger">9</span>
@@ -136,7 +137,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <img src="~/lib/site/img/biteslogo.png" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Survey</span>
+                                <span class="hidden-xs" style="text-transform:capitalize;">@User.Identity.Name</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -146,17 +147,17 @@
                                     <p>
                                         SURVEY <br /> BİTES
                                         <small>Survey Giriş</small>
-                                        <h4 style="color:white;">@User.Identity.Name</h4>
+                                        <h4 style="color:white;text-transform:capitalize;">@User.Identity.Name</h4>
                                     </p>
                                 </li>
 
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profil</a>
+                                        <a href="#" class="btn">Profil</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a asp-action="Logout" asp-controller="Account" class="btn btn-success">
+                                        <a asp-action="Logout" asp-controller="Account" class="btn">
                                             Çıkış Yap
                                         </a>
                                     </div>
@@ -210,12 +211,18 @@
                     </li>
                     <li id="navFlightPlanning">
                         <a href=@Url.Action("Index","Surveys")>
-                            <i class="fa fa-check-circle"></i><span>Anket Oluştur</span>
+                            <i class="fa fa-plus" aria-hidden="true"></i><span>Anket Oluştur</span>
                         </a>
                     </li>
                     <li id="navAnketCoz">
                         <a href=@Url.Action("Index","Answers")>
-                            <i class="fa fa-check-circle"></i><span>Anketler</span>
+                            <i class="fa fa-server" aria-hidden="true"></i><span>Anketler</span>
+                        </a>
+                    </li>
+
+                    <li id="navAnketCoz">
+                        <a href=@Url.Action("Index","Annoucements")>
+                            <i class="fa fa-bell"></i><span>Duyurular</span>
                         </a>
                     </li>
 
@@ -295,12 +302,12 @@
                             </a>
                         </li>
                         <li>
-                            
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
 
-                                    <p>Execution time 5 seconds</p>
-                                </div>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                <p>Execution time 5 seconds</p>
+                            </div>
                             </a>
                         </li>
                     </ul>
@@ -446,25 +453,13 @@
 
 
 
-    <script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/popper.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/adminlte/js/jquery.slimscroll.min.js"></script>
-    <script src="~/lib/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-    <script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-    <script src="~/lib/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.tr.js"></script>
-    <script src="~/lib/adminlte/js/fastclick.js"></script>
-    <script src="~/lib/adminlte/js/adminlte.min.js"></script>
-    <script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
-
-    @RenderSection("flightPlanning", required: false)
-    @RenderSection("personal", required: false)
-    @RenderSection("Scripts", required: false)
-
-    <script type="text/javascript">
 
 
 
+
+
+
+    <script>
 
         $(document).ready(function () {
 
@@ -516,5 +511,8 @@
 
         })
     </script>
+
+
 </body>
 </html>
+

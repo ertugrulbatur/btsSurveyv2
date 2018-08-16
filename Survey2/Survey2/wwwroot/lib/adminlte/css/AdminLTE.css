@@ -61,6 +61,7 @@ body {
   transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
   margin-left: 230px;
   z-index: 820;
+  position:relative;
 }
 .layout-top-nav .content-wrapper,
 .layout-top-nav .main-footer {
@@ -389,7 +390,7 @@ a:focus {
   .navbar-custom-menu .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
-    line-height: 20px;
+    line-height: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -2025,9 +2026,9 @@ a:focus {
  */
 .info-box {
   display: block;
-  min-height: 90px;
+  height: 128px;
   background: #fff;
-  width: 100%;
+  width: 50%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   margin-bottom: 15px;
@@ -2053,9 +2054,9 @@ a:focus {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 2px;
   display: block;
-  float: left;
-  height: 90px;
-  width: 90px;
+  float:left;
+  height: 128px;
+  width: 128px;
   text-align: center;
   font-size: 45px;
   line-height: 90px;
@@ -3519,6 +3520,7 @@ table.text-center th {
 .btn-adn:active,
 .btn-adn.active,
 .open > .dropdown-toggle.btn-adn {
+    height
   color: #ffffff;
   background-color: #ce563f;
   border-color: rgba(0, 0, 0, 0.2);
@@ -4725,7 +4727,7 @@ table.text-center th {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0089db', endColorstr='#0073b7', GradientType=0) !important;
   color: #fff;
 }
-.bg-aqua-gradient {
+    -gradient {
   background: #00c0ef !important;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #00c0ef), color-stop(1, #14d1ff)) !important;
   background: -ms-linear-gradient(bottom, #00c0ef, #14d1ff) !important;
