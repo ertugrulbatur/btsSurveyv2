@@ -27,6 +27,10 @@
     .searchable-container .btn-group {
         width: 90%
     }
+    
+    .searchable-container .radio-inline {
+        width: 90%
+    }
 
     .searchable-container .btn span.glyphicon {
         opacity: 0;
@@ -34,4 +38,9 @@
 
     .searchable-container .btn.active span.glyphicon {
         opacity: 1;
-    }   
+    }
+
+.searchable-container input[type="radio"]:checked + label,
+.Checked + label {
+   opacity: 1;
+}

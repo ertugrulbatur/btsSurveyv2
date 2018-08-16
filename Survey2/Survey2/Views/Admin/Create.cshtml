@@ -20,6 +20,13 @@
             <label asp-for="Password">Password</label>
             <input asp-for="Password" class="form-control" />
         </div>
+        <select class="form-control" id="typeSelector" asp-for="Department">
+            <option value="3D">Modelleme</option>
+            <option value="R&D">Ar&Ge</option>
+            <option value="Administration">Yönetim</option>
+            <option value="HumanResources">İnsan Kaynakları</option>
+            <option value="Test">Test</option>
+        </select>
         
         <input type="submit" class="btn btn-primary" value="Submit" />
         <a asp-action="Index" class="btn btn-danger">Cancel</a>

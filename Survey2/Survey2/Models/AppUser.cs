@@ -13,6 +13,8 @@ namespace Survey2.Models
         //public string Role { get; set; }
         //public string Password { get; set; }
 
+        public string Department { get; set; }
+
         public ICollection<Complaint> Complaints { get; set; }
         public ICollection<Question> Questions { get; set; }
         public ICollection<Answer> Answers { get; set; }

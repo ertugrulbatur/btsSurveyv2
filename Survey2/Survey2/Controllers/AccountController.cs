@@ -45,7 +45,7 @@ namespace Survey2.Controllers
                         return Redirect(returnUrl ?? "/Admin");
                     }
                 }
-                ModelState.AddModelError("Name", "Invalid Name or Password");
+                ModelState.AddModelError("Name", "Hatalı Kullancı Adı veya Şifre");
             }
             
             return View(model);
@@ -74,7 +74,7 @@ namespace Survey2.Controllers
 
             if (user == null || !(userManager.IsEmailConfirmedAsync(user).Result))
             {
-                ViewBag.Message = "Error while resetting your password!";
+                ViewBag.Message = "Şifrenizi sıfırlarken bir hata oluştu!";
                 return View("Error");
             }
 
@@ -86,7 +86,7 @@ namespace Survey2.Controllers
             // code to email the above link
             // see the earlier article
 
-            ViewBag.Message = "Password reset link has been sent to your email address!";
+            ViewBag.Message = "Şifre sıfırlama linki adresinize gönderildi!";
             return View("Login");
 
         }

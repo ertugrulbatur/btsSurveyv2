@@ -6,31 +6,29 @@
 
 <div class="container col-md-12">
     <form asp-action="GetAnswers">
-        @for (int i = 0; i < Model.Survey.Questions.Count; i++)
+        @foreach (var question in Model.Survey.Questions)
         {
+            <p>@question.Text</p>
 
-            <p>@Model.Survey.Questions.ElementAt(i).Text</p>
-
-                        //@for (int k = 0; k < Model.Survey.Questions.ElementAt(k).Type; k++)
-                        int k;
-                        if (Model.Survey.Questions.ElementAt(i).Type == "Multi")
-                        {
-                            for (k = 0; k < Model.Survey.Questions.ElementAt(i).Choices.Count; k++)
-                            {
+            @foreach (var choice in question.Choices)
+            {
+                if (choice.Type == "Multi")
+                {
                     <div class="row">
                         <div class="form-group">
-                            <div class="searchable-container">
+                            <div class="searchable-container row">
                                 <div class="items col-xs-5 col-sm-5 col-md-8 col-lg-3">
                                     <div class="info-block block-info clearfix">
                                         <div class="square-box pull-left">
                                             <span class="glyphicon glyphicon-lg glyphicon-check"></span>
                                         </div>
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default bizcontent col-md-6">
-                                                <input asp-for="@Model.Answer.Choice" type="checkbox" id="var_@(k)" name="var_id_@(k)" autocomplete="off" value="@Model.Survey.Questions.ElementAt(i).Choices.ElementAt(k).Text" class="icheck">
-                                                <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                @Model.Survey.Questions.ElementAt(i).Choices.ElementAt(k).Text
-
+                                            <label class="btn btn-default">
+                                                <div class="bizcontent col-md-6">
+                                                    <input asp-for="@Model.Answer.Choice" type="checkbox" name="var_id" autocomplete="off" value="@choice.Text" class="icheck">
+                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                    <h5>@choice.Text</h5>
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -39,11 +37,7 @@
                         </div>
                     </div>
                 }
-
-        }
-            else if (Model.Survey.Questions.ElementAt(i).Type == "Single")
-            {
-                for (k = 0; k < Model.Survey.Questions.ElementAt(i).Choices.Count; k++)
+                else if (choice.Type == "Single")
                 {
                     <div class="row">
                         <div class="form-group">
@@ -54,10 +48,12 @@
                                             <span class="glyphicon glyphicon-lg glyphicon-check"></span>
                                         </div>
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default bizcontent col-md-12">                                                
-                                                    <input asp-for="@Model.Answer.Choice" type="radio" name="var_id_@(k)" autocomplete="off" value="@Model.Survey.Questions.ElementAt(i).Choices.ElementAt(k).Text" class="iradio">
+                                            <label class="btn btn-default">
+                                                <div class="bizcontent col-md-12">
+                                                    <input asp-for="@Model.Answer.Choice" type="radio" name="var_id" autocomplete="off" value="@choice.Text" class="iradio">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                  @Model.Survey.Questions.ElementAt(i).Choices.ElementAt(k).Text                                                
+                                                    <h5>@choice.Text</h5>
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -65,25 +61,23 @@
                             </div>
                         </div>
                     </div>
+                    @*<div class="btn-group col-md-12" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                                <input type="radio" autocomplete="off">@choice.Text
+                            </label>
+                        </div>*@
                 }
+                else if (choice.Type == "Comment")
+                {
+                    <p>LOL</p>
 
-                @*<div class="btn-group col-md-12" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                        <input type="radio" autocomplete="off">@choice.Text
-                    </label>
-                </div>*@
+                }
             }
-            else if (Model.Survey.Questions.ElementAt(i).Type == "Comment")
-            {
-                <p>LOL</p>
-
-            }
-
 
         }
         <input asp-for="@Model.SurveyId" value="@Model.SurveyId" type="hidden" />
-        <input asp-for="@Model.UserId" value="@Model.UserId" type="hidden" />
-        <input class="btn btn-success" value="Soruyu Cevapla" onclick="test()" />
+        <input asp-for="@Model.Answer.UID" value="@Model.Answer.UID" type="hidden" />
+        <input class="btn btn-success" type="submit" value="Soruyu Cevapla" onclick="AnswerQuestion()" />
 
 
     </form>
@@ -99,19 +93,19 @@
 
 @section Scripts{
     <script>
-    //$(function () {
-    //    $('#search').on('keyup', function () {
-    //        var pattern = $(this).val();
-    //        $('.searchable-container .items').hide();
-    //        $('.searchable-container .items').filter(function () {
-    //            return $(this).text().match(new RegExp(pattern, 'i'));
-    //        }).show();
-    //    });
-    //});
+    $(function () {
+        $('#search').on('keyup', function () {
+            var pattern = $(this).val();
+            $('.searchable-container .items').hide();
+            $('.searchable-container .items').filter(function () {
+                return $(this).text().match(new RegExp(pattern, 'i'));
+            }).show();
+        });
+    });
 
-        
-      
-        
+
+
+
     $('.icheck').on('change', function () {
         if ($('.icheck:checked').length > 1) {
             this.checked = false;
@@ -122,30 +116,12 @@
             this.active = false;
         }
         });
-        var a = 0;
-        var b = $('input[name=var_id_'+0+']').val();
-       // var c = b.concat(a.toString);
-        console.log(b);
-        var total = $('input[name*=var_id_]:checked').length;
-        console.log(total);
-        
-        //alert($('input[name=var_id_]'.concat(a.toString)).val());
+        alert($('input[name=var_id]:last').val());
 
         function test() {
             var stringArray = new Array();
-            //alert($('input[name=var_id1]').val());
-            var SurveyId = $("#SurveyId").val();
-            var UserId = $("#UID").val();
-            
-            for (var i = 0; i < $('input[name*=var_id_]').length; i++) {
-                
-                if ($('input[name*=var_id_]:checked')) {
-                    stringArray[i] = $('input[name=var_id_' + i + ']:checked').val();
-                    console.log($('input[name=var_id_' + i + ']:checked').val());
-                }
-                    
-                
-                 
+            for (var i = 0; i < var_id.checked.length; i++) {
+                stringArray[i] =
             }
             var postData = { values: stringArray };
 
@@ -158,7 +134,7 @@
                     _answer: postData
                 },
                 success: function (data) {
-                    alert("Başarılı.");
+                    alert(data.Result);
                 },
                 dataType: "json",
                 traditional: true
@@ -180,7 +156,7 @@
                 alert("Başarılı")
             }
         });
-        
+
         }*@
         //$("#btn_").on('click', function () {
         //    var checkbox_value = "";
@@ -191,7 +167,7 @@
         //        }
         //    });
         //    alert(checkbox_value);
-            
+
         //});
 
     </script>

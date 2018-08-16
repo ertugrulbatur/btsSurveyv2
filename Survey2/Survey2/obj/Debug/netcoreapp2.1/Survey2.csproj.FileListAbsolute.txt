@@ -66,7 +66,6 @@ C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\bin\Debug\netcore
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csproj.CoreCompileInputs.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.RazorAssemblyInfo.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.RazorAssemblyInfo.cs
-C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.AssemblyInfoInputs.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.AssemblyInfo.cs
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.TagHelpers.input.cache
@@ -124,5 +123,7 @@ C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcore
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Surveys\AddQuestion.g.cshtml.cs
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Surveys\AddChoice.g.cshtml.cs
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Answers\GetAnswers.g.cshtml.cs
-C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csprojAssemblyReference.cache
 C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Answers\Index.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Razor\Views\Answers\GetAnswers2.g.cshtml.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\Ertugrul Batur\Desktop\BITES\Projects\Survey2\Survey2\obj\Debug\netcoreapp2.1\Survey2.csprojAssemblyReference.cache
